@@ -1,5 +1,7 @@
 package de.ars.schulung.samples.customers.boundary;
 
+import de.ars.schulung.samples.customers.domain.CustomerSink;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,16 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/customers")
+@RequiredArgsConstructor
 public class CustomersController {
 
+    private final CustomerSink sink;
+
     @GetMapping
-    Collection<Object> getCustomers() {
-        return Collections.emptyList();
+    Collection<Customer> getCustomers() {
+        return sink.findAll();
     }
 
     @PostMapping
