@@ -29,7 +29,7 @@ class RestApiWithWebTestClientTests {
     }
 
     @Test
-    void getCustomersShouldReturn200AndEmptyArrayBody() throws Exception {
+    void getCustomersShouldReturn200AndEmptyArrayBody() {
         webTestClient.get()
           .uri("/api/v1/customers")
           .accept(MediaType.APPLICATION_JSON)
@@ -39,7 +39,7 @@ class RestApiWithWebTestClientTests {
     }
 
     @Test
-    void postCustomersShouldReturn201CreatedAndNewCustomer() throws Exception {
+    void postCustomersShouldReturn201CreatedAndNewCustomer() {
         webTestClient.post()
           .uri("/api/v1/customers")
           .accept(MediaType.APPLICATION_JSON)
