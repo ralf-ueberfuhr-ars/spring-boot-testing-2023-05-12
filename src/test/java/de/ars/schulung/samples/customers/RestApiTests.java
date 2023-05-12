@@ -26,7 +26,12 @@ class RestApiTests {
 
     @Test
     void getCustomersShouldReturn200AndEmptyArrayBody() throws Exception {
-        mvc.perform(get("/api/v1/customers").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().json("[]"));
+        mvc.perform(
+          get("/api/v1/customers")
+            .accept(MediaType.APPLICATION_JSON)
+          )
+          .andExpect(status().isOk())
+          .andExpect(content().json("[]"));
     }
 
     @Test
